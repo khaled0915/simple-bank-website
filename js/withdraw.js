@@ -32,6 +32,17 @@ const newWithdrawAmountString = withdrawField.value ;
 const newWithdrawAmount = parseFloat(newWithdrawAmountString);
 // console.log(WithdrawAmount);
 
+// step-07
+
+withdrawField.value ='';
+
+
+
+if( isNaN(newWithdrawAmount)){
+    alert('please provide a valid number')
+    return;
+}
+
 
 // step-03:
 
@@ -41,6 +52,23 @@ const previousWithdrawTotal = parseFloat(previousWithdrawTotalElementString);
 // console.log(previousWithdrawTotal);
 
 
+
+
+
+
+
+// step -06 
+
+const balanceTotalElement= document.getElementById('balance-total');
+const previousBalanceTotalString = balanceTotalElement.innerText;
+const previousBalanceTotal = parseFloat(previousBalanceTotalString);
+// console.log(previousBalanceTotal); 
+
+if( newWithdrawAmount >previousBalanceTotal ){
+    alert('not enough money');
+    return;
+}
+
 // step-04 :
 
 const currentWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
@@ -49,19 +77,9 @@ const currentWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
 // step-05
 WithdrawTotalElement.innerText = currentWithdrawTotal;
 
-
-// step -06 
-
-const balanceTotalElement= document.getElementById('balance-total');
-const previousBalanceTotalString = balanceTotalElement.innerText;
-const previousBalanceTotal = parseFloat(previousBalanceTotalString);
-console.log(previousBalanceTotal); 
-
 const newBalanceTotal = previousBalanceTotal - newWithdrawAmount;
 balanceTotalElement.innerText = newBalanceTotal;
-// step-07
 
-withdrawField.value ='';
 
 
 
